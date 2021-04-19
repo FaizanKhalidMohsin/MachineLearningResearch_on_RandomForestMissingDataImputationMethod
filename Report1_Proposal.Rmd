@@ -1,0 +1,95 @@
+---
+title: 'Comparing Performance of Missing Data Methods: Random
+  Forest Imputation, MICE Imputation, Mean Imputation, and Complete Case Analysis
+  for Different Missing Data Mechanisms.'
+author: "Faizan Khalid Mohsin"
+date: "October 23, 2020"
+output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
+    toc_depth: 3
+  html_document:
+    df_print: paged
+    toc: yes
+    toc_depth: '3'
+header-includes: \usepackage{setspace} \singlespacing \usepackage{paralist} \let\itemize\compactitem
+bibliography: biblio.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#Student: Faizan Khalid Mohsin; Student #: 997157570; Professor: Dr. Wendy Lou; Course: CHL5250H
+```
+
+
+
+# Overview: 
+
+
+In this paper we will implement and assess the performance of four different missing data methods: complete case analysis, mean imputation, multiple imputation with chained equations (MICE), and Random Forest Imputation (RFI). The goal of this study would be to give a guidance on the performance, in terms of accuracy and computational time, of the different missing data methods for different percentages and types of missing data. We will describe the theoretical frameworks of MICE imputation and Random Forest Imputation and will assess the performance of all four methods at 10%, 20%, 30% and 40% missing data for missing completely at random (MCAR), missing at random (MAR), and missing not at random (MNAR). We will do this for two different simulated data sets. The “missForest” R package by @Stekhoven2011 will be used for implementing Random Forest Imputation. The “MICE” R package by @buuren2010mice will be used to implement MICE imputation. 
+
+
+# Introduction
+
+As data has become more ubiquitous so has the problem of missing data. This is also true for studies which are getting bigger and bigger in scope. To overcome this issue several missing data methods have been established over the years. In this paper will be looking at four missing data methods: complete case analysis, mean imputation, multiple imputation with chained equations, and Random Forest Imputation.
+
+# Methods
+
+## Data
+
+### Types of Missing data
+
+We will describe the three types of missing data: missing completely at random (MCAR), missing at random (MAR), and missing not at random (MNAR).
+
+### Simulating the two data sets
+
+We will create a data set with 1000 observations and 91 variables. For simplicity, all variables will be continuous with 90 variables treated as covariates and one as dependent. The two data sets will have different degree of correlation between the variables.
+
+### Inducing missing data
+
+We will introduce missing data using MCAR, MAR, and MNAR at the 10%, 20%, 30% and 40% missingness for each missing data type, hence giving us a total of 12 missing data sets for each of the two data sets.
+
+## Missing Data Methods
+
+### Complete Case Analysis
+
+We will describe complete case analysis, its advantages and disadvantages, and cite if its estimates are biased or not.
+
+### Mean Imputation
+
+We will describe mean imputation, its advantages and disadvantages, and cite if its estimates are biased or not.
+
+### MICE Imputation
+
+We will describe multiple imputation, its theoretical frame work with the key formulas and concepts, and derivations. Specifically, describe multiple imputation with chain equations (MICE) implementation. Also, we will use diagrams to help illustrate the concepts of MICE.
+
+### Random Forest Imputation
+
+We will describe random forest imputation, the algorithm, the theoretical framework, the equations, and the formulas. We will use a few helpful diagrams for illustrating the algorithm.
+
+## Assessment of Missing Data Method
+
+To assess the missing data methods we will perform a regression analysis on the imputed data sets and the two complete data sets. The mse’s from imputed data sets will be divided by the mse from the corresponding complete data set. We will call this the “standardized mse” and use it to assess the performance of the imputation method benchmarked to the performance of the complete data set.
+
+
+# Results
+
+# Discussion
+
+# References
+
+
+We will use the papers @strobl2007bias, @tang2017random and @hong2020accuracy for referring to the theoretical framework of Random Forest Imputation. The papers @azur2011multiple, @Sterneb2393 and @rubin1996multiple will be used for referring to the theoretical framework of MICE imputation.
+
+<div id="refs"></div>
+
+<!--  @rubin2004multiple-->
+
+<!-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5796790/ -->
+
+<!-- https://bmcmedresmethodol.biomedcentral.com/articles/10.1186/s12874-020-01080-1 -->
+
+
+
